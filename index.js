@@ -29,7 +29,7 @@ app.use('/messages', require('./routes/messages'));
 const server = http.createServer(app);
 const io = require('socket.io')(server, {
   cors: {
-    origin: process.env.CLIENT_URL,
+    origin:'https://workout-tracker-mohawk.herokuapp.com/',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
   },
 });
