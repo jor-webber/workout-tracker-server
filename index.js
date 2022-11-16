@@ -28,6 +28,7 @@ app.use('/messages', require('./routes/messages'));
 
 const server = http.createServer(app);
 const io = require('socket.io')(server);
+io.origins(['https://workout-tracker-mohawk.herokuapp.com/'])
 
 let clientSocketIds = [];
 
