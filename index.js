@@ -27,8 +27,11 @@ app.use('/forum', require('./routes/forum'));
 app.use('/messages', require('./routes/messages'));
 
 const server = http.createServer(app);
-const io = require('socket.io')(server);
-io.origins(['https://workout-tracker-mohawk.herokuapp.com/'])
+const io = require('socket.io')(server, {
+  cors: {
+    origin: '*'
+  }
+});
 
 let clientSocketIds = [];
 
