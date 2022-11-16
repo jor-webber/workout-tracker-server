@@ -28,24 +28,10 @@ app.use('/messages', require('./routes/messages'));
 
 const server = http.createServer(app);
 const io = require('socket.io')(server, {
-  cors: {
-    origin:'https://workout-tracker-mohawk.herokuapp.com/',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  },
+  origins: ['https://workout-tracker-mohawk.herokuapp.com/'],
 });
 
 let clientSocketIds = [];
-
-// io.use((socket, next) => {
-//   const username = socket.handshake.auth.username;
-//   const userId = socket.handshake.auth.userId;
-//   if (!username || !userId) {
-//     return next(new Error('Invalid username or Id'));
-//   }
-//   socket.username = username;
-//   socket.userId = userId;
-//   next();
-// });
 
 const getSocketByUserId = (userId) => {
   let userSocket = null;
