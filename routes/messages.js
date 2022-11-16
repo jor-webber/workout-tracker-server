@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
     [senderId, recievingId, message]
   );
 
-  console.log(result.rows);
+
 });
 
 router.post('/from-users', async (req, res) => {
@@ -20,7 +20,6 @@ router.post('/from-users', async (req, res) => {
     [currentUser, otherUser, currentUser, otherUser]
   );
 
-  console.log(result.rows)
 
   return res.status(200).json({
     messages: result.rows

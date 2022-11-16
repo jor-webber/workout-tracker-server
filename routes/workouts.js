@@ -123,8 +123,6 @@ router.delete('/:workoutId', async (req, res) => {
 router.put('/', async (req, res) => {
   let { workoutId, startTime, endTime, submittedExercises } = req.body;
 
-  console.log(submittedExercises);
-
   startTime = new Date(startTime);
   endTime = new Date(endTime);
   let result;

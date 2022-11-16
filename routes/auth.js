@@ -103,7 +103,6 @@ router.post('/login', validInfo, async (req, res) => {
         message: 'Password or Email is incorrect',
       });
     }
-    console.log(user.rows)
 
     // Check if password is correct
     const isMatch = await bcrypt.compare(password, user.rows[0].password);
@@ -251,8 +250,6 @@ router.post('/upload-photo/:id',  upload.single('profilePicture'), async (req, r
     [filename, id]
   )
 
-  console.log(result.rows);
-
   res.status(200).json({
     message: 'File uploaded',
     profilePicture: result.rows[0].profile_picture
@@ -268,10 +265,6 @@ router.post('/update-user', upload.single('profilePicture'), async (req, res) =>
     email,
     profileCaption,
   } = req.body;
-
-  console.log(req.body);
-
-  console.log(req.body);
 
   const result = await pool.query(
     'UPDATE users SET first_name = $1, last_name = $2, email = $3, profile_caption = $4, username = $5 WHERE id = $6 RETURNING *',

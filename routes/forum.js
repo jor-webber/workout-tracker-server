@@ -11,8 +11,6 @@ router.get('/', async (req, res) => {
     `
   );
 
-  console.log(result.rows);
-
   return res.status(200).json({
     forumPosts: result.rows,
   });
@@ -69,8 +67,6 @@ router.get('/:id', async (req, res) => {
         `,
         [postId]
       );
-
-      console.log(result.rows)
 
       if(result.rows) {
         return res.status(200).json({
